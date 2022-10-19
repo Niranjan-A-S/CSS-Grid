@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrapper > div {
+  background: #eee;
+  padding: 1em;
+}
+
+.wrapper > div:nth-child(odd) {
+  background: #ddd;
+}
+
+.wrapper {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  /*3 columns of equal size, this is the short hand syntax for the above property*/
+  /*If we need the combinations of frs use the below property*/
+  /* grid-template-columns: repeat(3, 1fr 2fr); */
+  /* grid-auto-rows: 100px; gives height to all div as 100px */
+  grid-auto-rows: minmax(
+    100,
+    auto
+  ); /*means min will be 100px and if any div has more content adjust the entire row with the height which holds the content of that particular div */
+}
+
+.nested > div {
+  border: 1px solid #333;
+  padding: 1em;
+}
+
+.nested {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 70px;
+  grid-gap: 1em;
+}
